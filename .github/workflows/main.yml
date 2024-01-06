@@ -26,6 +26,9 @@ jobs:
       - name: Build the project
         run: npm run build
 
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Set up Git
         run: |
           git config --global user.name "GitHub Actions"
