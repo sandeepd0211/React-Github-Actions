@@ -23,8 +23,8 @@ jobs:
       - name: Lint Check
         run: npm run lint
 
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - name: Build the project
+        run: npm run build
 
       - name: Set up Git
         run: |
@@ -34,9 +34,6 @@ jobs:
       - name: Get the current version
         id: curr_version
         run: echo "::set-output name=version::$(node -pe "require('./package.json').version")"
-
-      - name: Build the project
-        run: npm run build
 
       - name: Create or update version folder
         run: |
