@@ -68,6 +68,7 @@ jobs:
 
       - name: Commit changes to gh-pages
         run: |
+          rm -rf !(docs|other-versions) .eslintrc.cjs
           git add .
           git commit -m "Deploy version ${{ steps.curr_version.outputs.version }}"
           git push origin -f gh-pages
