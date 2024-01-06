@@ -50,9 +50,9 @@ jobs:
         run: |
           echo 
           mkdir -p ${{ steps.curr_version.outputs.version }}
-          mkdir -p _latest
+          mkdir -p docs
           cp -r dist/* ${{ steps.curr_version.outputs.version }}
-          cp -r dist/* _latest
+          cp -r dist/* docs
 
       - name: Check if gh-pages branch exists
         run: |
