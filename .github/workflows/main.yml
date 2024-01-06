@@ -71,4 +71,4 @@ jobs:
         run: |
           git add .
           git commit -m "Deploy version ${{ steps.curr_version.outputs.version }}"
-          git push origin gh-pages
+          git push origin -f gh-pages
