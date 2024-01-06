@@ -54,7 +54,6 @@ jobs:
       - name: Commit changes to gh-pages
         run: |
           git checkout -B gh-pages
-          git pull origin gh-pages
           git add .
           git commit -m "Deploy version ${{ steps.curr_version.outputs.version }}"
           git push origin gh-pages
