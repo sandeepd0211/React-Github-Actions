@@ -41,7 +41,7 @@ jobs:
 
       - name: Get the current version
         id: curr_version
-        run: echo """set-output name=version::$(node -pe "require('./package.json').version")"
+        run: echo "::set-output name=version::$(node -pe "require('./package.json').version")"
 
       - name: Create or update version folder
         run: |
