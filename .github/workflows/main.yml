@@ -46,7 +46,7 @@ jobs:
       - name: Create or update version folder
         run: |
           mkdir -p ${{ steps.curr_version.outputs.version }}
-          cp -r build/* ${{ steps.curr_version.outputs.version }}
+          cp -r dist/* ${{ steps.curr_version.outputs.version }}
 
       - name: Commit changes to gh-pages
         run: |
