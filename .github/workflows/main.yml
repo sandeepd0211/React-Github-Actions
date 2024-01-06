@@ -62,6 +62,7 @@ jobs:
         run: |
           if [ "$GH_PAGES_EXISTS" = true ]; then
             git checkout gh-pages
+            git pull origin gh-pages
           else
             git checkout -b gh-pages
           fi
