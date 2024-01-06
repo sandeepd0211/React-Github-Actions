@@ -53,6 +53,19 @@ jobs:
           mkdir -p other-versions/v${{ steps.curr_version.outputs.version }}
           cp -r dist/* other-versions/v${{ steps.curr_version.outputs.version }}
 
+      - name: Check if gh-pages branch exists
+        run: |
+          git branch -a | grep 'remotes/origin/gh-pages$' && export GH_PAGES_EXISTS=true || export GH_PAGES_EXISTS=false
+
+      - name: Create or switch to gh-pages branch
+        run: |
+          if [ "$GH_PAGES_EXISTS" = true ]; then
+            git checkout gh-pages
+            git pull origin gh-pages
+          else
+            git checkout -b gh-pages
+          fi
+
       - name: Commit changes to gh-pages
         run: |
           git add .
